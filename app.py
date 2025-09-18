@@ -121,3 +121,14 @@ with tab_add:
             #if Insert fail this comes up
             except Exception as e:
                 st.error(f"Insert failed: {e}")
+#Using Update Income Tab
+with tab_update:            
+    st.subheader("Update Employee Monthly Income")#header for tab
+
+
+
+    with st.form("update_income"):
+        #creatin cells for entering
+        emp_id = st.number_input("EmployeeNumber", min_value=1, step=1)#creating a cell for primary key is the employee number 
+        new_income = st.number_input("New MonthlyIncome", min_value=0, step=1000)# cell for setting new income
+        update_btn = st.form_submit_button("Update Income", use_container_width=True, type="primary")  #Submit Button
