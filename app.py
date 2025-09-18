@@ -132,3 +132,25 @@ with tab_update:
         emp_id = st.number_input("EmployeeNumber", min_value=1, step=1)#creating a cell for primary key is the employee number 
         new_income = st.number_input("New MonthlyIncome", min_value=0, step=1000)# cell for setting new income
         update_btn = st.form_submit_button("Update Income", use_container_width=True, type="primary")  #Submit Button
+
+    if update_btn:
+        try:
+            with sqlite3.connect("employees.db") as c:# When Submiting a form it connects to the DB
+                
+                #this command is to UPDATE Enterd Data into The DB using SQL Query
+                c.execute(
+                    """
+                    UPDATE employees
+                    SET MonthlyIncome = ?
+                    WHERE EmployeeNumber = ?;
+                    """,
+                    (int(new_income), int(emp_id)),
+                )
+                c.commit()
+            #notifactions 
+            st.success(f"Employee {emp_id} income updated to {new_income} ✅")
+            st.rerun()
+        #if Insert fail this comes up
+        except Exception as e:
+            st.error(f"Update failed: {e}")
+
