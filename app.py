@@ -31,3 +31,10 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+#Using Overview Tab
+with tab_overview:
+    #Creating filter and the All is to be ueds later
+    ALL = "All Departments"
+    dept = st.selectbox("Filter by Department", [ALL] + sorted(df["Department"].dropna().unique().tolist())) # create a dropdown to filter employees by department
+    df_view = df if dept == ALL else df[df["Department"] == dept] # if "All" is selected show all data, else show only the chosen department
