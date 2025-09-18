@@ -38,3 +38,16 @@ with tab_overview:
     ALL = "All Departments"
     dept = st.selectbox("Filter by Department", [ALL] + sorted(df["Department"].dropna().unique().tolist())) # create a dropdown to filter employees by department
     df_view = df if dept == ALL else df[df["Department"] == dept] # if "All" is selected show all data, else show only the chosen department
+    
+    st.subheader(f"Average Monthly Income by Job Role ({dept})") #Here is the title for bar chart ialso connected it with dept above
+    
+    #query i used before in python "dbDemo"
+    q3 = (
+        df_view.groupby("JobRole")["MonthlyIncome"]
+        .mean().round(2)
+        .reset_index()
+        .rename(columns={"MonthlyIncome": "AvgMonthlyIncome"})
+        .sort_values("AvgMonthlyIncome", ascending=False)
+    )
+    #making bar chart read from query to figure out average monthly income by job role
+    st.bar_chart(q3.set_index("JobRole")["AvgMonthlyIncome"], use_container_width=True)
