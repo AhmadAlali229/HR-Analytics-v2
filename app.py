@@ -83,3 +83,41 @@ with tab_add:
         st.markdown("### Adding New Employee ")
         department = st.selectbox("Department", list(job_roles_map.keys()), key="dept_live")
         job_role   = st.selectbox("JobRole", job_roles_map[department], key="role_live")
+
+        #creating form
+    with st.form("Add new Employee"):
+        #creating Cells
+        Age = st.number_input("**Age**", min_value=18, max_value=80, value=30,placeholder="Enter Employee's Age") #creatin age cell
+        MonthlyIncome = st.number_input("**MonthlyIncome**",placeholder="Enter Employee's MonthlyIncome", min_value=0, value=5000)
+        ot     = st.selectbox("OverTime", ["No","Yes"])
+        #Submit Button
+        submit = st.form_submit_button("Add Employee ",use_container_width=True,type='primary')
+        
+        if submit:
+            try:
+                with sqlite3.connect("employees.db") as c: # When Submiting a form it connects to the DB
+                    
+                    #this command is to Insert Enterd Data into The DB using SQL Query
+                    c.execute(
+                        """
+                        INSERT INTO employees
+                        (Age, Department, JobRole, MonthlyIncome, OverTime)
+                        VALUES (?, ?, ?, ?, ?);
+                        """,
+                        (
+                        int(Age),
+                        department.strip(),
+                        job_role.strip(),
+                        int(MonthlyIncome),
+                        ot,
+                            ),
+                )
+                    c.commit()
+
+                #notifactions 
+                st.success("Employee inserted ✅")
+                st.rerun()
+                st.success("Form Submitted Successfully")
+            #if Insert fail this comes up
+            except Exception as e:
+                st.error(f"Insert failed: {e}")
