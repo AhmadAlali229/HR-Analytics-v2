@@ -67,3 +67,19 @@ with tab_overview:
     #Creatin Tavle to show Employee details
     st.subheader(f"Employee Details ({dept})")
     st.dataframe(df_view, use_container_width=True)
+
+#Using add employee Tab
+with tab_add:
+    # crearing roles maps for selection based on department
+    job_roles_map = {
+        "Human Resources": ["Human Resources", "Manager"],
+        "Research & Development": ["Research Scientist","Laboratory Technician", "Manufacturing Director",
+                                    "Healthcare Representative", "Manager","Research Director",],
+        "Sales": ["Sales Executive", "Sales Representative", "Manager"],
+    }
+
+    # This container is to figure out the employees Department and jobrole before form
+    with st.container():
+        st.markdown("### Adding New Employee ")
+        department = st.selectbox("Department", list(job_roles_map.keys()), key="dept_live")
+        job_role   = st.selectbox("JobRole", job_roles_map[department], key="role_live")
