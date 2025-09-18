@@ -59,3 +59,7 @@ with tab_overview:
     
     #making bar chart read from query to figure out Employyes by department and in department
     st.bar_chart(q2.set_index("Department")["Count"], use_container_width=True)
+
+    #making pie chart with title inside to figure out companys distrubtion
+    fig = px.pie(q2, values="Count", names="Department", title="Distribution by Department")
+    st.plotly_chart(fig, use_container_width=True)
