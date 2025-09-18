@@ -16,3 +16,18 @@ st.markdown('<h1 style="font-size:50px; font-weight:800; margin-bottom:10px;">HR
 st.markdown("An interactive dashboard where you can analyze employees, add new records, and update salaries easily.")#Descreption
 
 tab_overview, tab_add, tab_update = st.tabs(["Overview", "Add Employee", "Update Income"])#Creating Taps to be usesd later
+
+#Style for tabs when used
+st.markdown("""
+    <style>
+    /* make the tabs text a bit bigger */
+    button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] p {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    /* add some padding so tabs look larger */
+    button[data-baseweb="tab"] {
+        padding: 12px 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
