@@ -63,3 +63,7 @@ with tab_overview:
     #making pie chart with title inside to figure out companys distrubtion
     fig = px.pie(q2, values="Count", names="Department", title="Distribution by Department")
     st.plotly_chart(fig, use_container_width=True)
+    
+    #Creatin Tavle to show Employee details
+    st.subheader(f"Employee Details ({dept})")
+    st.dataframe(df_view, use_container_width=True)
