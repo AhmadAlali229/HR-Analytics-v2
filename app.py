@@ -51,3 +51,11 @@ with tab_overview:
     )
     #making bar chart read from query to figure out average monthly income by job role
     st.bar_chart(q3.set_index("JobRole")["AvgMonthlyIncome"], use_container_width=True)
+    
+    st.subheader(f"Employees by Department ({dept})")#Here is the title for bar chart ialso connected it with dept above
+    
+    #query i used before in python "dbDemo"
+    q2 = df_view["Department"].value_counts().rename_axis("Department").reset_index(name="Count")
+    
+    #making bar chart read from query to figure out Employyes by department and in department
+    st.bar_chart(q2.set_index("Department")["Count"], use_container_width=True)
