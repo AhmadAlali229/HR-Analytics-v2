@@ -4,7 +4,7 @@ import pandas as pd
 import sqlite3
 import plotly.express as px
 
-conn = sqlite3.connect("employees.db") #connecting with database
+conn = sqlite3.connect("..\data\employees.db") #connecting with database
 
 ##Loading Database
 def load_employees():
