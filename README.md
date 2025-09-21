@@ -24,7 +24,7 @@ Dataset used:
 ✔️ **Dashboard (Overview):** Filter employees by department, visualize average monthly income, and view employee details  
 ✔️ **Add Employee:** Insert new employee records into the database  
 ✔️ **Update Income:** Update employee salaries directly from the dashboard  
-✔️ **Queries:** SQL + Python queries for HR insights)  
+✔️ **Queries:** SQL + Python queries for HR insights
 
 ---
 
