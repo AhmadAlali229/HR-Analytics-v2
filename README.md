@@ -58,10 +58,10 @@ The dashboard makes it easy to:
 ---
 
 ## 🚀 Features  
-✔️ **Dashboard (Overview):** Filter employees by department, visualize average monthly income, and view employee details  ![Dashboard](image.png)
-✔️ **Add Employee:** Insert new employee records into the database  ![alt text](image-1.png)
-✔️ **Update Income:** Update employee salaries directly from the dashboard  ![alt text](image-2.png)
-✔️ **Queries:** SQL + Python queries for HR insights ![alt text](image-3.png) 
+✔️ **Dashboard (Overview):** Filter employees by department, visualize average monthly income, and view employee details  ![Dashboard](..\Images\image.png)
+✔️ **Add Employee:** Insert new employee records into the database  ![Add emloyee UI](..\Images\image-1.png)
+✔️ **Update Income:** Update employee salaries directly from the dashboard ![Uodate Income UI](..\Images\ge-2.png)
+✔️ **Queries:** SQL + Python queries for HR insights ![Queries](..\Images\image-3.png)
 
 ---
 

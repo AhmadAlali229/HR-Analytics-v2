@@ -13,7 +13,7 @@ def load_employees():
 df = load_employees()
 
 #Add logo
-LOGO = Image.open('..\Picture1.png')
+LOGO = Image.open('..\Images\Picture1.png')
 left, mid, right = st.columns([1,3,1])
 st.image(LOGO, width=180)
 
