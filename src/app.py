@@ -17,6 +17,26 @@ st.markdown("An interactive dashboard where you can analyze employees, add new r
 
 tab_overview, tab_add, tab_update = st.tabs(["Overview", "Add Employee", "Update Income"])#Creating Taps to be usesd later
 
+# --- ultra simple theme ---
+PURPLE = "#5B2BE0"
+PINK   = "#FF3B6A"
+
+st.markdown(f"""
+<style>
+/* Shading color */
+.stApp {{
+  background: linear-gradient(135deg, {PURPLE} 0%, {PINK} 100%);
+  color: #FFFFFF;
+}}
+/*    button color */
+button[kind="primary"], button[data-baseweb="button"] {{
+  background: {PINK};
+  color: #FFFFFF;
+}}
+</style>
+""", unsafe_allow_html=True)
+
+
 #Style for tabs when used
 st.markdown("""
     <style>
