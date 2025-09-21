@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment folders
+venv/
+env/
+.venv/
+
+# Conda environment files
+condaenv.*
+*.conda
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
